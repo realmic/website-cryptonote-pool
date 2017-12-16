@@ -1,4 +1,4 @@
-var api = "https://pool.fearsomegaming.com:8117";
+var api = "https://pool.fearsomegaming.com/api/";
 
 var coinUnits = 100000000;
 
