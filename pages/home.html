@@ -83,51 +83,51 @@
     <!-- Description or information about this pool -->
 </div>
 
-<div class="row">
-    <div class="col-md-4 stats">
-        <h3>Network</h3>
-        <div><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></div>
-        <div><i class="fa fa-clock-o"></i> Block Found: <span id="networkLastBlockFound"></span></div>
-        <div><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></div>
-        <div><i class="fa fa-bars"></i> Blockchain Height: <span id="blockchainHeight"></span></div>
-        <div><i class="fa fa-money"></i> Last Reward: <span id="networkLastReward"></span></div>
-        <div><i class="fa fa-paw"></i> Last Hash: <a id="lastHash" target="_blank"></a></div>
-    </div>
+<div class="ui three column doubling stackable grid container">
 
-    <div class="col-md-4 stats">
-        <h3>Our Pool</h3>
-        <div><i class="fa fa-tachometer"></i> Hash Rate: <span id="poolHashrate"></span></div>
-        <div><i class="fa fa-clock-o"></i> Block Found: <span id="poolLastBlockFound"></span></div>
-        <div><i class="fa fa-users"></i> Connected Miners: <span id="poolMiners"></span></div>
-        <div><i class="fa fa-gift"></i> Donations: <span id="poolDonations"></span></div>
-        <div><i class="fa fa-money"></i> Total Pool Fee: <span id="poolFee"></span></div>
-        <div><i class="fa fa-history"></i> Block Found Every: <span id="blockSolvedTime"></span> (est.)</div>
-    </div>
+  <div class="column stats">
+      <h3>Network</h3>
+      <div><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></div>
+      <div><i class="fa fa-clock-o"></i> Block Found: <span id="networkLastBlockFound"></span></div>
+      <div><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></div>
+      <div><i class="fa fa-bars"></i> Blockchain Height: <span id="blockchainHeight"></span></div>
+      <div><i class="fa fa-money"></i> Last Reward: <span id="networkLastReward"></span></div>
+      <div><i class="fa fa-paw"></i> Last Hash: <a id="lastHash" target="_blank"></a></div>
+  </div>
 
-    <div class="col-md-4 stats">
-        <h3 id="marketHeader">Market</h3>
-        <div class="marketFooter">Updated: <span id="marketLastUpdated"></span></div>
-        <div class="marketFooter">Powered by <a href="https://www.cryptonator.com/">Cryptonator</a></div>
-    </div>
+  <div class="column stats">
+      <h3>Our Pool</h3>
+      <div><i class="fa fa-tachometer"></i> Hash Rate: <span id="poolHashrate"></span></div>
+      <div><i class="fa fa-clock-o"></i> Block Found: <span id="poolLastBlockFound"></span></div>
+      <div><i class="fa fa-users"></i> Connected Miners: <span id="poolMiners"></span></div>
+      <div><i class="fa fa-gift"></i> Donations: <span id="poolDonations"></span></div>
+      <div><i class="fa fa-money"></i> Total Pool Fee: <span id="poolFee"></span></div>
+      <div><i class="fa fa-history"></i> Block Found Every: <span id="blockSolvedTime"></span> (est.)</div>
+  </div>
+
+  <div class="column stats">
+      <h3 id="marketHeader">Market</h3>
+      <div class="marketFooter">Updated: <span id="marketLastUpdated"></span></div>
+      <div class="marketFooter">Powered by <a href="https://www.cryptonator.com/">Cryptonator</a></div>
+  </div>
+
 </div>
 
+
+<div class="ui container">
 <hr>
 
 <div id="miningProfitCalc">
     <h3>Estimate Mining Profits</h3>
     <div id="calcHashHolder">
-        <div class="input-group">
+        <div class="ui action input">
             <input type="number" class="form-control" id="calcHashRate" placeholder="Enter Your Hash Rate">
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
-                    <span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" id="calcHashUnits">
-                    <li><a href="#" data-mul="0">H/s</a></li>
-                    <li><a href="#" data-mul="1">KH/s</a></li>
-                    <li><a href="#" data-mul="2">MH/s</a></li>
-                </ul>
-            </div>
+            <select class="ui compact selection dropdown" id="calcHashUnits">
+                <option value="0">H/s</option>
+                <option value="1">KH/s</option>
+                <option value="2">MH/s</option>
+            </select>
+            <span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
             <span class="input-group-addon">=</span>
             <span class="input-group-addon" id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span>/day</span>
         </div>
@@ -176,7 +176,7 @@
     <p class="yourStats text-center">
         <button type="button" class="btn btn-default" id="loadMorePayments">Load More</button>
     </p>
-
+</div>
 </div>
 
 <script>
@@ -316,9 +316,9 @@
 
     $('#calcHashRate').keyup(calcEstimateProfit).change(calcEstimateProfit);
 
-    $('#calcHashUnits > li > a').click(function(e){
+    $('#calcHashUnits').change(function(e){
         e.preventDefault();
-        $('#calcHashUnit').text($(this).text()).data('mul', $(this).data('mul'));
+        $('#calcHashUnit').text($(this).value);
         calcEstimateProfit();
     });
 
