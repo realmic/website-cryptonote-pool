@@ -1,17 +1,21 @@
-var api = "https://pool.fearsomegaming.com:8117";
+var api = "https://pool.fearsomegaming.com/api/";
 
-var coinUnits = 100000000;
+var api_blockexplorer = "https://pool.fearsomegaming.com:1118";
 
 var poolHost = "pool.fearsomegaming.com";
 
-var irc = "irc.freenode.net/#bcn-pools";
+var irc = "irc.freenode.net/#fearpool";
 
-var email = "ccatlett2000@mctherealm.net";
+var email = "support@poolhost.com";
 
-var cryptonatorWidget = ["BCN-BCH", "BCN-USD"];
+var cryptonatorWidget = [];
 
 var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/releases/";
 
-var blockchainExplorer = "https://chainradar.com/bcn/block/";
+var blockchainExplorer = "https://explorer.mine77.net/#/block/{id}";
 
-var transactionExplorer = "https://chainradar.com/bcn/transaction/";
+var transactionExplorer = "https://explorer.mine77.net/#/tx/{id}";
+
+var themeCss = "themes/default-theme.css";
+
+var networkStat = {};
