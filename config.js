@@ -1,6 +1,6 @@
 var api = "https://pool.fearsomegaming.com/api/";
 
-var api_blockexplorer = "https://pool.fearsomegaming.com:1118";
+var api_blockexplorer = "https://pool.fearsomegaming.com/daemon";
 
 var poolHost = "pool.fearsomegaming.com";
 
